@@ -1,3 +1,6 @@
+import 'package:dogspath/route/router.dart';
+import 'package:dogspath/route/routes.dart';
+import 'package:dogspath/utils/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,10 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dog\'s Path',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(),
+      theme: AppTheme.theme(),
+      initialRoute: Routes.splashScreen,
+      onGenerateRoute: (settings) => AppRouter.onGenerateRoute(settings),
     );
   }
 }
