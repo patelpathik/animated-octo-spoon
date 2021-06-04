@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:dogspath/route/router.dart';
 import 'package:dogspath/route/routes.dart';
 import 'package:dogspath/utils/theme.dart';
