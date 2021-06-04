@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static Color textColor = Color(0xFFADADAD);
-  static Color loginLabelColor = Color(0xFFF2F2F2);
+  static Color labelColor = Color(0xFFF2F2F2);
+  static Color defBackgroundColor = Color(0xFF383838);
 
   static TextStyle defTextStyle() {
     return TextStyle(color: textColor);
@@ -10,7 +11,7 @@ class AppTheme {
 
   static ThemeData theme() {
     return ThemeData(
-      scaffoldBackgroundColor: Color(0xFF383838),
+      scaffoldBackgroundColor: defBackgroundColor,
       textTheme: TextTheme(
         headline1: defTextStyle(),
         headline2: defTextStyle(),
