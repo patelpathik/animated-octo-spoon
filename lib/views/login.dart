@@ -1,4 +1,5 @@
 import 'package:dogspath/route/routes.dart';
+import 'package:dogspath/utils/functions.dart';
 import 'package:dogspath/utils/size_config.dart';
 import 'package:dogspath/utils/theme.dart';
 import 'package:flutter/material.dart';
@@ -12,15 +13,17 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool isLoggedIn = false;
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
 
     TextStyle titleStyle = Theme.of(context).textTheme.headline6!.copyWith(
-          color: AppTheme.loginLabelColor,
+          color: AppTheme.labelColor,
         );
     TextStyle subTitleStyle = Theme.of(context).textTheme.subtitle1!.copyWith(
-          color: AppTheme.loginLabelColor,
+          color: AppTheme.labelColor,
         );
     return Scaffold(
       body: Align(
@@ -48,8 +51,14 @@ class _LoginState extends State<Login> {
                 elevation: 5,
                 child: InkWell(
                   splashColor: Colors.white54,
-                  onTap: () {
-                    Navigator.pushReplacementNamed(context, Routes.home);
+                  onTap: () async {
+                    if (await facebookLogin()) {
+                      Navigator.pushReplacementNamed(context, Routes.home);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Login Failed")),
+                      );
+                    }
                   },
                   child: Align(
                     alignment: Alignment.center,
