@@ -1,4 +1,5 @@
 import 'package:dogspath/route/routes.dart';
+import 'package:dogspath/views/home.dart';
 import 'package:dogspath/views/login.dart';
 import 'package:dogspath/views/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class AppRouter {
         break;
 
       case Routes.home:
-        page = Scaffold(body: Center(child: Text("WIP")));
+        page = Home();
         break;
     }
     return MaterialPageRoute(builder: (context) => page, settings: settings);
